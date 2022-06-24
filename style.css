@@ -165,7 +165,7 @@ a {
   color: black;
 }
 
-/* Media queries */
+
 @media (min-width: 576px) {
   .container {
     width: 576px;

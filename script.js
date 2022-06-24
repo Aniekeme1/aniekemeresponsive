@@ -9,30 +9,28 @@ function onSubmit(e) {
   verifyInputs();
 }
 
-// get the input values
+
 function verifyInputs() {
   const firstNameValue = firstName.value.trim();
   const lastNameValue = lastName.value.trim();
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
 
-  // Here is the logic for each form field
 
-  // check if firstname is empty
   if (firstNameValue === '') {
     ErrorMsg(firstName, 'First Name cannot be empty');
   } else {
     success(firstName);
   }
 
-  // check if lastname is empty
+ 
   if (lastNameValue === '') {
     ErrorMsg(lastName, 'Last Name cannot be empty');
   } else {
     success(lastName);
   }
 
-  // check if email is empty
+ 
   if (emailValue === '') {
     ErrorMsg(email, 'Email cannot be empty');
   } else if (!isValid(emailValue)) {
@@ -41,7 +39,7 @@ function verifyInputs() {
     success(email);
   }
 
-  // check if password is empty
+
   if (passwordValue === '') {
     ErrorMsg(password, 'Password cannot be empty');
   } else if (passwordValue.length <= 6) {
@@ -51,7 +49,7 @@ function verifyInputs() {
   }
 }
 
-// Error function
+
 function ErrorMsg(name, message) {
   const inputControl = name.parentElement;
   inputControl.classList.add('error');
@@ -60,7 +58,7 @@ function ErrorMsg(name, message) {
   errMsg.textContent = message;
 }
 
-// Success function
+
 function success(name) {
   const inputControl = name.parentElement;
   inputControl.classList.add('success');
@@ -69,7 +67,7 @@ function success(name) {
   errMsg.textContent = '';
 }
 
-// check if the mail is empty
+
 function isValid(email) {
   var re =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
