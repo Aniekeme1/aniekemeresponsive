@@ -1,62 +1,79 @@
-const form = document.getElementById('form');
+const form = document.querySelector('#form');
+const firstName = document.querySelector('.firstname');
+const lastName = document.querySelector('.lastname');
+const email = document.querySelector('.email');
+const password = document.querySelector('.password');
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const firstName = form['firstname'].value;
-    const lastName = form['lastname'].value;
-    const email = form['email'].value;
-    const password = form['password'].value;
-
-    if (firstname === '') {
-        addErrorTo('firstname', 'First Name is required');
-    } else {
-        removeErrorFrom('firstname')
-    }
-
-    if (lastname === '') {
-        addErrorTo('lastname', 'Last Name is required');
-    } else {
-        removeErrorFrom('lastname')
-    }
-
-    if (email === '') {
-        addErrorTo('email', 'Looks like this is not an email');
-    }else if (isValid (email)){
-
-    } else {
-        removeErrorFrom('email')
-    }
-
-    if (!isValid(email)) {
-        addErrorTo('email', 'Looks like this is not an email');
-    }
-
-
-    if (password === '') {
-        addErrorTo('password', 'Password is required');
-    }
- 
-
-});
-
-function addErrorTo(field, message) {
-    const formControl = form[field].parentNode
-    formControl.classLiist.add('error');
-    const small = formControl.queryselector('small')
-    small.innerText = message;
-
+function onSubmit(e) {
+  e.preventDefault();
+  verifyInputs();
 }
 
-function removeErrorFrom(field) {
-    const formControl = form[field].parentNode
-    formControl.classLiist.remove('error');
+// get the input values
+function verifyInputs() {
+  const firstNameValue = firstName.value.trim();
+  const lastNameValue = lastName.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
 
+  // Here is the logic for each form field
+
+  // check if firstname is empty
+  if (firstNameValue === '') {
+    ErrorMsg(firstName, 'First Name cannot be empty');
+  } else {
+    success(firstName);
+  }
+
+  // check if lastname is empty
+  if (lastNameValue === '') {
+    ErrorMsg(lastName, 'Last Name cannot be empty');
+  } else {
+    success(lastName);
+  }
+
+  // check if email is empty
+  if (emailValue === '') {
+    ErrorMsg(email, 'Email cannot be empty');
+  } else if (!isValid(emailValue)) {
+    ErrorMsg(email, 'Looks like this is not an email');
+  } else {
+    success(email);
+  }
+
+  // check if password is empty
+  if (passwordValue === '') {
+    ErrorMsg(password, 'Password cannot be empty');
+  } else if (passwordValue.length <= 6) {
+    ErrorMsg(password, 'Password should be more than 6 characters');
+  } else {
+    success(password);
+  }
 }
 
+// Error function
+function ErrorMsg(name, message) {
+  const inputControl = name.parentElement;
+  inputControl.classList.add('error');
+  inputControl.classList.remove('success');
+  const errMsg = inputControl.querySelector('.err-msg');
+  errMsg.textContent = message;
+}
 
+// Success function
+function success(name) {
+  const inputControl = name.parentElement;
+  inputControl.classList.add('success');
+  inputControl.classList.remove('error');
+  const errMsg = inputControl.querySelector('.err-msg');
+  errMsg.textContent = '';
+}
+
+// check if the mail is empty
 function isValid(email) {
-    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-
+  var re =
+    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
 }
+
+form.addEventListener('submit', onSubmit);
