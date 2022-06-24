@@ -1,46 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Aniekeme's Responsive Registeration Form</title>
-
-  <link rel="stylesheet" href="style.css" >
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Aniekeme's Responsive Registeration Form</title>
+  </head>
+  <body>
     <div class="container">
-      <div>
-        <h1>Learn to code by <br> watching others</h1>
-        <p>See how experienced developers solve problems in real-time. Watching scripted tutorials is great, 
-          but understanding how developers think is invaluable.</p>
-      </div>
-      <div>
-        <div class="box box-blue">
-          <p><strong>Try it free 7 days</strong> then $20/mo. thereafter</p>
-        </div>
-        <form class="box" id="form">
-          <div class="form-control"><input type="text" id="firstname" placeholder="First Name"><img src=".images/icon-error.svg" alt="error-icon"><small></small></div>
-          <div class="form-control"><input type="text" id="lastname" placeholder="Last Name"><img src=".images/icon-error.svg" alt="error-icon"><small></small></div>
-          <div class="form-control"><input type="email" id="email" placeholder="Email Address"><img src=".images/icon-error.svg" alt="error-icon"><small></small></div>
-          <div class="form-control"><input type="password" id="password" placeholder="Password"><img src=".images/icon-error.svg" alt="error-icon"><small></small></div>
+      <div class="grid">
+        <!-- title section -->
+        <section class="title">
+          <h1>Learn to code by watching others</h1>
+          <p>
+            See how experienced developers solve problems in real-time. Watching
+            scripted tutorials is great, but understanding how developers think
+            is invaluable.
+          </p>
+        </section>
 
-          <button>Claim your free trial</button>
-          <small>By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></small>
-        </form>
+        <!-- form field -->
+        <section class="form-container">
+          <p class="trial">
+            <strong>Try it free 7 days</strong> then $20/mo. thereafter
+          </p>
+          <form id="form" class="form-section">
+            <div class="input-control">
+              <input class="firstname" type="text" placeholder="first name" />
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="err-msg"></div>
+            </div>
+
+            <div class="input-control">
+              <input class="lastname" type="text" placeholder="last name" />
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="err-msg"></div>
+            </div>
+
+            <div class="input-control">
+              <input class="email" type="text" placeholder="email address" />
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="err-msg"></div>
+            </div>
+
+            <div class="input-control">
+              <input class="password" type="password" placeholder="password" />
+              <i class="fa-solid fa-circle-exclamation"></i>
+              <i class="fa-solid fa-circle-check"></i>
+              <div class="err-msg"></div>
+            </div>
+
+            <button class="btn" type="submit">claim your free trial</button>
+            <p class="terms">
+              By clicking the button, you are agreeing to our
+              <a href="#">Terms and Services</a>
+            </p>
+          </form>
+        </section>
       </div>
     </div>
 
-    <script src="./script.js"></script>
+    <footer class="footer">
+      <p class="attribution">
+        Check out the Repo on
+        <a
+          href="https://github.com/Aniekeme1/aniekemeresponsive"
+          target="_blank"
+          >GitHub</a
+        >. Copyright
+        <a href="https://github.com/Aniekeme1" target="_blank"
+          >Aniekeme Umoren</a
+        >.
+      </p>
+    </footer>
 
-    <footer>
-    <p class="attribution">
-      Check out the Repo on <a href="https://github.com/Aniekeme1/aniekemeresponsive" target="_blank">GitHub</a>. 
-      Copyright <a href="https://github.com/Aniekeme1" target="_blank">Aniekeme Umoren</a>.
-    </p>
-  </footer>
-</body>
+    <script src="./script.js"></script>
+  </body>
 </html>

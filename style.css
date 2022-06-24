@@ -1,172 +1,213 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Spline+Sans+Mono:wght@700&display=swap');
 
-*{
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: hsl(0, 100%, 74%);
-    background-image: url('./images/bg-intro-desktop.png');
-    color: white;
-    font-family: 'Poppins', sans-serif;  
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: hsl(0, 100%, 74%) url(./images/bg-intro-mobile.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
 }
 
-.container{
-    display: flex;
-    flex-wrap: wrap;
-    max-width: 1400;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 4rem 1rem;
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title h1 {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1.3rem;
+}
+
+.trial {
+  background-color: hsl(248, 32%, 49%);
+  text-align: center;
+  padding: 1.25rem;
+  border-radius: 5px;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-section {
+  background-color: white;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+}
+
+.input-control input {
+  width: 100%;
+  padding: 1rem 0;
+  padding-left: 0.5rem;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid hsl(244, 17%, 84%);
+}
+
+::placeholder {
+  text-transform: capitalize;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+
+.input-control {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.input-control i {
+  position: absolute;
+  top: 1.2rem;
+  right: 10px;
+  visibility: hidden;
+}
+
+.input-control.error input {
+  border: 2px solid #ff3860;
+}
+
+.input-control.success input {
+  border: 2px solid #09c372;
+}
+
+.input-control.error i.fa-circle-exclamation {
+  visibility: visible;
+  color: #ff3860;
+}
+
+.input-control.success i.fa-circle-check {
+  visibility: visible;
+  color: #09c372;
+}
+
+.err-msg {
+  color: #ff3860;
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.btn {
+  background-color: hsl(154, 59%, 51%);
+  width: 100%;
+  border: none;
+  position: relative;
+  box-shadow: 0 2px hsl(154, 59%, 45%);
+  border-radius: 5px;
+  color: white;
+  padding: 15px 25px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 1.5rem 0;
+  transition: all 0.2s ease-in;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: all 0.2s ease-in;
+  opacity: 0;
+}
+
+.btn:hover::before {
+  opacity: 0.3;
+}
+
+.terms {
+  color: #bbb;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.terms a {
+  color: hsl(0, 100%, 74%);
+  font-weight: 600;
+}
+
+.footer {
+  padding-bottom: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: black;
+}
+
+/* Media queries */
+@media (min-width: 576px) {
+  .container {
+    width: 576px;
     margin: 0 auto;
+  }
 }
 
-.container > div {
-    flex: 1;
-    padding: 0 20px;
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+  }
 }
 
-h1 {
-    font-size: 40px;
-    line-height: 50px;
-}
+@media (min-width: 1024px) {
+  body {
+    background-image: url(./images/bg-intro-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
 
-p {
-font-size: 15px;
-opacity: 0.8;
-}
+  .container {
+    width: 1200px;
+  }
 
-.box {
-    background-color: white;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    text-align: center;
-}
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 1.5rem;
+  }
 
-.box p {
-    margin: 0;
-}
+  .title {
+    text-align: left;
+  }
 
-.box-blue {
-    background-color: hsl(248, 32%, 49%);
-    padding: 20px;
-}
+  .title h1 {
+    font-size: 3rem;
+  }
 
-.form-control {
-    margin-bottom: 30px;
-    position: relative;
-}
-
-.form-control small {
-    color: hsl(0, 100%, 74%);
-    position: absolute;
-    bottom: -24px;
-    right: 0;
-    text-align: right;
-    font-style: italic;
-    font-weight: 600;
-    opacity: 0;
-}
-
-.form-control.error input{
-    border-color: hsl(0, 100%, 74%);
-    color: hsl(0, 100%, 74%);
-}
-
-.form-control.error ::placeholder{
-    color: hsl(0, 100%, 74%);
-}
-
-input {
-    display: block;
-    width: 100%;
-    border: 1.3px solid hsl(246, 25%, 77%);
-    border-radius: 5px;
-    border: 1px solid ;
-    padding: 15px 25px;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-}
-
-input:focus {
-    border: 1.3px solid hsl(248, 32%, 49%);
-    outline: none;
-}
-
-.form-control img{
-    opacity: 0;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
-
-.form-control.error img {
-    opacity: 1;
-}
-
-button {
-    background-color: hsl(154, 59%, 51%) ;
-    display: block;
-    width: 100%;
-    border: 1px solid hsl(154, 59%, 45%) ;
-    box-shadow: 0 2px hsl(154, 59%, 45%) ;
-    border-radius: 5px;
-    color: white;
-    border: 1px solid ;
-    padding: 15px 25px;
-    font-weight: 500;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-button:focus {
-    outline: none;
-}
-
-button:active {
-    box-shadow: 0 0px hsl(154, 59%, 45%) ;
-    transform: translateY(2px);
-}
-
-.form-control small {
-    opacity: 0;
-}
-
-.form-control.error small {
-    opacity: 1;
-}
-
-small {
-    color: #bbb;
-    display: block;
-    font-size: 11px;
-    margin-top: 15px;
-    font-weight: 500;
-}
-
-small a {
-    color: hsl(0, 100%, 74%);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-@media screen and (max-width: 375px)  {
-    .container {
-        flex-direction: column;
-    }
-
-    h1 {
-        text-align: center;
-    }
-
-    p {
-        text-align: center;
-    }
-    
+  .form {
+    padding-right: 2rem;
+    padding-left: 2rem;
+  }
 }
